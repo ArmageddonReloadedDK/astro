@@ -4,7 +4,8 @@ import pandas as pd
 
 
 
-signs=['aries','taurus','taurus','cancer','leo','virgo','libra','scorpio','sagittarius','capricorn','aquarius','pisces']
+signs=['aries','gemini','taurus','cancer','leo','virgo','libra','scorpio','sagittarius','capricorn','aquarius','pisces']
+data = pd.read_csv('data.csv', names=['date', 'sign', 'text'])
 
 for i in range(2004,2021):
     for j in range(1,13):
@@ -26,7 +27,6 @@ for i in range(2004,2021):
 
                     soup = BeautifulSoup(response, features="lxml")
                     text = soup.find('div', {'class': '_1dQ3'}).text
-                    data = pd.read_csv('data.csv', names=['date', 'sign', 'text'])
                     data=data.append({'date': date, 'sign': sign, 'text': text}, ignore_index=True)
                     data.to_csv('data.csv', encoding = 'utf-8')
                 except Exception:
