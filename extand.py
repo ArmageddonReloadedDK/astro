@@ -1,0 +1,31 @@
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
+
+#2017-09-15 last
+
+signs=['aries','gemini','taurus','cancer','leo','virgo','libra','scorpio','sagittarius','capricorn','aquarius','pisces']
+data = pd.read_csv('data.csv', names=['date', 'sign', 'text'])
+
+for k in range(16,32):
+    for sign in signs:
+        try:
+            year=2017
+            month=9
+            day=k
+            if month<10:
+                month='0'+str(month)
+            if day<10:
+                day='0'+str(day)
+            date='%s-%s-%s'%(year,month,day)
+            url = 'https://horoscopes.rambler.ru/%s/%s/?updated'% (sign,date)  # url для второй страницы
+            print(url)
+            r = requests.get(url)
+            response = r.text.encode('utf-8')
+
+            soup = BeautifulSoup(response, features="lxml")
+            text = soup.find('div', {'class': '_1dQ3'}).text
+            data=data.append({'date': date, 'sign': sign, 'text': text}, ignore_index=True)
+            data.to_csv('data.csv', encoding = 'utf-8')
+        except Exception:
+            continue

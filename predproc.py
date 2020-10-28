@@ -2,12 +2,12 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-
+#2017-09-15 last
 
 signs=['aries','gemini','taurus','cancer','leo','virgo','libra','scorpio','sagittarius','capricorn','aquarius','pisces']
 data = pd.read_csv('data.csv', names=['date', 'sign', 'text'])
 
-for i in range(2004,2021):
+for i in range(2017,2021):
     for j in range(1,13):
         for k in range(1,32):
             for sign in signs:
