@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-
+#2017-09-15 last
 
 signs=['aries','gemini','taurus','cancer','leo','virgo','libra','scorpio','sagittarius','capricorn','aquarius','pisces']
 data = pd.read_csv('data.csv', names=['date', 'sign', 'text'])
@@ -29,5 +29,6 @@ for i in range(2004,2021):
                     text = soup.find('div', {'class': '_1dQ3'}).text
                     data=data.append({'date': date, 'sign': sign, 'text': text}, ignore_index=True)
                     data.to_csv('data.csv', encoding = 'utf-8')
+                    print('saved date=', date, ' sign=', sign)
                 except Exception:
                     continue
