@@ -7,6 +7,7 @@ stat_data = np.load('stat_data.npy')
 signs_list = np.load('signs_list.npy')
 chars_list = np.load('chars_list.npy')
 
+
 groups = [i for i in range(len(chars_list))]
 counts = np.array([num.sum(axis=0) for num in stat_data])
 countsl = [num.sum(axis=0) for num in stat_data]
