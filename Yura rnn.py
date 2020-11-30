@@ -5,6 +5,9 @@ import numpy as np
 from keras.layers.recurrent import SimpleRNN
 from keras.models import Sequential
 from keras.layers import Dense, Activation
+from keras.preprocessing.sequence import TimeseriesGenerator
+from keras.preprocessing.sequence import sequence
+
 
 # открываем файл для чтения побайтово и создаем пустой массив
 # в этом массив попадут строки из файла
