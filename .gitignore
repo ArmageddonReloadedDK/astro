@@ -126,3 +126,4 @@ dmypy.json
 .pyre/
 data.~csv
 predproc.py~
+words.~csv
