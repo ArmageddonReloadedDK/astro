@@ -127,3 +127,6 @@ dmypy.json
 data.~csv
 predproc.py~
 words.~csv
+
+models/*
+runs/*
