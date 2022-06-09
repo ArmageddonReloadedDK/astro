@@ -3,6 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 /.idea/*
+/weights/*
+/datasets/*
+/pictures/*
+/ru-gpts/*
 
 # C extensions
 *.so
